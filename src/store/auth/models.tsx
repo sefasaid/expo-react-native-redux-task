@@ -2,6 +2,8 @@ export interface User {
     username: string;
     password: string;
     token: string;
+    id: string;
+    name: string;
 }
 export interface Wallet {
     id: number;

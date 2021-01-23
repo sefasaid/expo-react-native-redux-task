@@ -5,7 +5,9 @@ const initialState: UserState = {
     user: {
         username: '',
         password: '',
-        token: ''
+        token: '',
+        id: '',
+        name: ''
     },
     loading: {
         show: false,
@@ -54,7 +56,9 @@ export function authReducer(
                 user: {
                     token: '',
                     username: '',
-                    password: ''
+                    password: '',
+                    id: '',
+                    name: ''
                 }
             };
         default:

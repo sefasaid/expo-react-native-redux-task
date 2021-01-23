@@ -8,14 +8,14 @@ export default function Login() {
   let [username, setUsername] = useState<string>("");
   let [password, setPassword] = useState<string>("");
   const dispatch = useDispatch();
-  username ='ReactUser';
-  password ='Native63';
+  username = 'ReactUser';
+  password = 'Native63';
 
   const login = () => {
     if (username.trim() === '' || password.trim() === '') {
       return;
     }
-    dispatch(loginPost({ username: username, password: password, token: '' }));
+    dispatch(loginPost(username, password));
   }
   return (
     <View style={ styles.container } >

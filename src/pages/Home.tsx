@@ -1,13 +1,35 @@
-import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import React, { useEffect } from 'react';
+import { StyleSheet, View, Text, ScrollView, FlatList, SafeAreaView } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+import { getWallets } from '../store/auth/effects';
+import { Wallet } from '../store/auth/models';
+import { AppState } from '../store/store';
 
 
 export default function Home() {
-
+    const dispatch = useDispatch();
+    const { accountWallets, user } = useSelector(
+        (state: AppState) => state.auth
+    )
+    useEffect(() => {
+        dispatch(getWallets(user.id))
+    }, [user.token]);
     return (
-        <View style={ styles.container } >
-            <Text>asdfasdf</Text>
-        </View>
+        <SafeAreaView style={ { flex: 1 } }>
+            <View style={ styles.container } >
+                <FlatList
+                    style={ styles.listView }
+                    data={ accountWallets }
+                    renderItem={
+                        ({ item }) =>
+                            <View style={ styles.walletView } >
+                                <Text>{ item.name }</Text>
+                                <Text>{ item.trust }</Text>
+                            </View>
+                    }
+                />
+            </View>
+        </SafeAreaView>
     );
 };
 
@@ -17,41 +39,18 @@ const styles = StyleSheet.create({
         backgroundColor: '#003f5c',
         alignItems: 'center',
         justifyContent: 'center',
+        flexDirection: 'column',
     },
-    logo: {
-        fontWeight: "bold",
-        fontSize: 50,
-        color: "#fb5b5a",
-        marginBottom: 40
-    },
-    inputView: {
-        width: "80%",
-        backgroundColor: "#465881",
-        borderRadius: 25,
-        height: 50,
+    walletView: {
+        width: '100%',
+        backgroundColor: '#465881',
+        borderRadius: 10,
         marginBottom: 20,
-        justifyContent: "center",
+        justifyContent: 'center',
         padding: 20
     },
-    inputText: {
-        height: 50,
-        color: "white"
-    },
-    forgot: {
-        color: "white",
-        fontSize: 11
-    },
-    loginBtn: {
-        width: "80%",
-        backgroundColor: "#fb5b5a",
-        borderRadius: 25,
-        height: 50,
-        alignItems: "center",
-        justifyContent: "center",
-        marginTop: 40,
-        marginBottom: 10
-    },
-    loginText: {
-        color: "white"
+    listView: {
+        padding: '10%',
+        width: '100%',
     }
 });

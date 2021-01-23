@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button, StyleSheet } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavigationContainer } from "@react-navigation/native";
@@ -10,7 +10,7 @@ import { AppState } from './store/store';
 import Loader from 'react-native-modal-loader';
 import Home from './pages/Home';
 import { loadApp, logoutApp } from './store/auth/effects';
-
+import { AntDesign } from '@expo/vector-icons';
 export default function App() {
 
     const dispatch = useDispatch();
@@ -35,16 +35,15 @@ export default function App() {
                             <Stack.Screen
                                 name="Home"
                                 component={ Home }
-                                options={ {
-                                    headerShown: true,
-                                    headerRight: () => (
-                                        <Button
-                                            onPress={ logout }
-                                            title="Logout"
-                                            color="#000"
-                                        />
-                                    )
-                                } }
+                                options={
+                                    {
+                                        title: user.name,
+                                        headerShown: true,
+                                        headerRight: () => (
+                                            <AntDesign style={ styles.icon } name="logout" size={ 28 } color="red" onPress={ logout } />
+                                        )
+                                    }
+                                }
                             />
                         )
                     }
@@ -58,10 +57,8 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
+    icon: {
+        padding:10
+    }
+
 });

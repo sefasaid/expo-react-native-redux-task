@@ -22,7 +22,7 @@ export function loginSuccess(user: User): AuthActionTypes {
     };
 }
 
-export function getWallets(wallets: Wallet[]): AuthActionTypes {
+export function getWalletsAction(wallets: Wallet[]): AuthActionTypes {
     return {
         type: GET_WALLETS,
         payload: wallets,
