@@ -34,10 +34,7 @@ export interface Wallet {
     provider: string,
     isDefault: boolean
 }
-export interface Toast {
-    message: string;
-    show: boolean;
-};
+
 export interface Loading {
     message: string;
     show: boolean;
@@ -45,7 +42,6 @@ export interface Loading {
 export interface UserState {
     accountWallets: Wallet[];
     user: User;
-    toast: Toast;
     loading: Loading;
 }
 

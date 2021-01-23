@@ -1,4 +1,4 @@
-import { AuthActionTypes, GET_WALLETS, HIDE_LOADING, HIDE_TOAST, LOGIN_SUCCESS, SHOW_LOADING, SHOW_TOAST } from './actionTypes';
+import { AuthActionTypes, GET_WALLETS, HIDE_LOADING, INIT_APP, LOGIN_SUCCESS, LOGOUT, SHOW_LOADING } from './actionTypes';
 import { UserState } from './models';
 const initialState: UserState = {
     accountWallets: [],
@@ -8,10 +8,6 @@ const initialState: UserState = {
         token: ''
     },
     loading: {
-        show: false,
-        message: ''
-    },
-    toast: {
         show: false,
         message: ''
     }
@@ -43,24 +39,22 @@ export function authReducer(
             return {
                 ...state,
                 loading: {
-                    show: true,
+                    show: false,
                     message: ''
                 }
             };
-        case SHOW_TOAST:
+        case INIT_APP:
             return {
                 ...state,
-                loading: {
-                    show: true,
-                    message: action.payload
-                }
+                user: action.payload
             };
-        case HIDE_TOAST:
+        case LOGOUT:
             return {
                 ...state,
-                loading: {
-                    show: true,
-                    message: ''
+                user: {
+                    token: '',
+                    username: '',
+                    password: ''
                 }
             };
         default:

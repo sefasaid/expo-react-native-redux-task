@@ -1,7 +1,5 @@
 import { User, Wallet } from './models';
-import { AuthActionTypes, GET_WALLETS, HIDE_LOADING, HIDE_TOAST, LOGIN_SUCCESS, SHOW_LOADING, SHOW_TOAST } from './actionTypes';
-const API_URL = 'https://uat.quiqone.com/api';
-
+import { AuthActionTypes, GET_WALLETS, HIDE_LOADING, INIT_APP, LOGIN_SUCCESS, LOGOUT, SHOW_LOADING } from './actionTypes';
 
 export function showLoading(message: string): AuthActionTypes {
     return {
@@ -16,18 +14,7 @@ export function hideLoading(): AuthActionTypes {
     };
 }
 
-export function showToast(message: string): AuthActionTypes {
-    return {
-        type: SHOW_TOAST,
-        payload: message
-    };
-}
 
-export function hideToast(): AuthActionTypes {
-    return {
-        type: HIDE_TOAST,
-    };
-}
 export function loginSuccess(user: User): AuthActionTypes {
     return {
         type: LOGIN_SUCCESS,
@@ -39,5 +26,18 @@ export function getWallets(wallets: Wallet[]): AuthActionTypes {
     return {
         type: GET_WALLETS,
         payload: wallets,
+    };
+}
+
+export function initApp(user: User): AuthActionTypes {
+    return {
+        type: INIT_APP,
+        payload: user,
+    };
+}
+
+export function logout(): AuthActionTypes {
+    return {
+        type: LOGOUT
     };
 }

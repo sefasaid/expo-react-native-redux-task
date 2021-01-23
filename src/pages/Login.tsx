@@ -5,9 +5,12 @@ import { loginPost } from "../store/auth/effects";
 
 
 export default function Login() {
-  const [username, setUsername] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+  let [username, setUsername] = useState<string>("");
+  let [password, setPassword] = useState<string>("");
   const dispatch = useDispatch();
+  username ='ReactUser';
+  password ='Native63';
+
   const login = () => {
     if (username.trim() === '' || password.trim() === '') {
       return;

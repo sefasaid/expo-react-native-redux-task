@@ -4,7 +4,7 @@ import { authReducer } from './auth/reducers';
 import thunk from 'redux-thunk';
 
 const rootReducer = combineReducers({
-    auth: authReducer,
+    auth: authReducer
 });
 export type AppState = ReturnType<typeof rootReducer>;
 export default function configureStore() {
