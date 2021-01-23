@@ -56,9 +56,11 @@ const styles = StyleSheet.create({
     },
     walletName: {
         fontSize: 22,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color: 'white'
     },
     trust: {
+        color: 'white',
         fontSize: 18
     }
 });
