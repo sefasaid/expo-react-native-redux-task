@@ -28,6 +28,7 @@ export default function Home() {
                                 <Text style={ styles.trust }>{ item.symbol } { item.trust }</Text>
                             </View>
                     }
+                    keyExtractor={ (item, index) => item.id.toString() }
                 />
             </View>
         </SafeAreaView>
