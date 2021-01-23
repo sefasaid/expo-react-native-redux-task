@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, TextInput, View, TouchableOpacity, Button } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { loginPost } from '../store/auth/effects';
-
-
+import { Entypo } from '@expo/vector-icons';
 export default function Login() {
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [show_password, setShowPassword] = useState<boolean>(false);
   const dispatch = useDispatch();
 
   const login = () => {
@@ -14,6 +14,10 @@ export default function Login() {
       return;
     }
     dispatch(loginPost(username, password));
+  }
+
+  const showPassword = () => {
+    setShowPassword(!show_password);
   }
   return (
     <View style={ styles.container } >
@@ -26,13 +30,15 @@ export default function Login() {
           onChangeText={ e => { setUsername(e) } } />
 
       </View>
-      <View style={ styles.inputView } >
+      <View style={ styles.passwordContainer } >
         <TextInput
-          style={ styles.inputText }
+          secureTextEntry={ show_password }
+          style={ styles.inputPassword }
           placeholder='Password...'
           value={ password }
           placeholderTextColor='#003f5c'
           onChangeText={ e => { setPassword(e) } } />
+        <Entypo name={ show_password ? 'eye' : 'eye-with-line' } size={ 24 } color="black" onPress={ showPassword } />
       </View>
 
 
@@ -53,14 +59,12 @@ const styles = StyleSheet.create({
   inputView: {
     width: '80%',
     backgroundColor: '#465881',
-    borderRadius: 25,
-    height: 50,
+    borderRadius: 15,
     marginBottom: 20,
     justifyContent: 'center',
     padding: 20
   },
   inputText: {
-    height: 50,
     color: 'white'
   },
   loginBtn: {
@@ -75,5 +79,18 @@ const styles = StyleSheet.create({
   },
   loginText: {
     color: 'white'
-  }
+  },
+  passwordContainer: {
+    flexDirection: 'row',
+    width: '80%',
+    backgroundColor: '#465881',
+    borderRadius: 15,
+    marginBottom: 20,
+    justifyContent: 'center',
+    padding: 20
+  },
+  inputPassword: {
+    flex: 1,
+    color: 'white'
+  },
 });

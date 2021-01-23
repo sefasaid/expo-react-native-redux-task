@@ -27,6 +27,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "This is task for job application",
+    "githubUrl": "https://github.com/sefasaid/expo-react-native-redux-task"
   }
 }
