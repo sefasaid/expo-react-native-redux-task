@@ -7,21 +7,17 @@ export function showLoading(message: string): AuthActionTypes {
         payload: message
     };
 }
-
 export function hideLoading(): AuthActionTypes {
     return {
         type: HIDE_LOADING
     };
 }
-
-
 export function loginSuccess(user: User): AuthActionTypes {
     return {
         type: LOGIN_SUCCESS,
         payload: user,
     };
 }
-
 export function getWalletsAction(wallets: Wallet[]): AuthActionTypes {
     return {
         type: GET_WALLETS,
@@ -35,7 +31,6 @@ export function initApp(user: User): AuthActionTypes {
         payload: user,
     };
 }
-
 export function logout(): AuthActionTypes {
     return {
         type: LOGOUT

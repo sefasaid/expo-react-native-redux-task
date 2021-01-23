@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, View, Text, ScrollView, FlatList, SafeAreaView } from 'react-native';
+import { StyleSheet, View, Text, FlatList, SafeAreaView } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { getWallets } from '../store/auth/effects';
-import { Wallet } from '../store/auth/models';
 import { AppState } from '../store/store';
 
 

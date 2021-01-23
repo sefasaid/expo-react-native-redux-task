@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Button, StyleSheet } from 'react-native';
+import React from 'react';
+import { StyleSheet } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -12,7 +12,6 @@ import Home from './pages/Home';
 import { loadApp, logoutApp } from './store/auth/effects';
 import { AntDesign } from '@expo/vector-icons';
 export default function App() {
-
     const dispatch = useDispatch();
     const { loading, user } = useSelector(
         (state: AppState) => state.auth
@@ -50,15 +49,12 @@ export default function App() {
                 </Stack.Navigator>
             </NavigationContainer>
             <Loader loading={ loading.show } color="#ff66be" />
-
         </RootSiblingParent>
-
     );
 }
 
 const styles = StyleSheet.create({
     icon: {
-        padding:10
+        padding: 10
     }
-
 });

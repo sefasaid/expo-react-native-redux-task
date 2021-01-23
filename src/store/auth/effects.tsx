@@ -37,7 +37,6 @@ export const loginPost = (username: string, password: string) => {
                     delay: 0,
                 });
             })
-
         }).catch(error => {
             dispatch(hideLoading());
             Toast.show(error.response.data.message, {
@@ -49,7 +48,6 @@ export const loginPost = (username: string, password: string) => {
                 delay: 0,
             });
         })
-
     };
 };
 const setLoginLocal = async (user: User) => {
@@ -73,7 +71,6 @@ export const logoutApp = () => {
         })
     }
 }
-
 
 export const getWallets = (id: string) => {
     return function (dispatch: Dispatch<AuthActionTypes>) {
