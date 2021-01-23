@@ -59,7 +59,8 @@ export function authReducer(
                     password: '',
                     id: '',
                     name: ''
-                }
+                },
+                accountWallets: []
             };
         default:
             return state;

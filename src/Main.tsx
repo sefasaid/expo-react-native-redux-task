@@ -11,7 +11,7 @@ import Loader from 'react-native-modal-loader';
 import Home from './pages/Home';
 import { loadApp, logoutApp } from './store/auth/effects';
 import { AntDesign } from '@expo/vector-icons';
-export default function App() {
+export default function Main() {
     const dispatch = useDispatch();
     const { loading, user } = useSelector(
         (state: AppState) => state.auth
