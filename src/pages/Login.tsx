@@ -1,15 +1,13 @@
-import React, { useState } from "react";
-import { StyleSheet, Text, TextInput, View, TouchableOpacity, Button } from "react-native";
-import { useDispatch } from "react-redux";
-import { loginPost } from "../store/auth/effects";
+import React, { useState } from 'react';
+import { StyleSheet, Text, TextInput, View, TouchableOpacity, Button } from 'react-native';
+import { useDispatch } from 'react-redux';
+import { loginPost } from '../store/auth/effects';
 
 
 export default function Login() {
-  let [username, setUsername] = useState<string>("");
-  let [password, setPassword] = useState<string>("");
+  const [username, setUsername] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
   const dispatch = useDispatch();
-  username = 'ReactUser';
-  password = 'Native63';
 
   const login = () => {
     if (username.trim() === '' || password.trim() === '') {
@@ -22,18 +20,18 @@ export default function Login() {
       <View style={ styles.inputView } >
         <TextInput
           style={ styles.inputText }
-          placeholder="Email..."
+          placeholder='Username...'
           value={ username }
-          placeholderTextColor="#003f5c"
+          placeholderTextColor='#003f5c'
           onChangeText={ e => { setUsername(e) } } />
 
       </View>
       <View style={ styles.inputView } >
         <TextInput
           style={ styles.inputText }
-          placeholder="Password..."
+          placeholder='Password...'
           value={ password }
-          placeholderTextColor="#003f5c"
+          placeholderTextColor='#003f5c'
           onChangeText={ e => { setPassword(e) } } />
       </View>
 
@@ -52,40 +50,30 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  logo: {
-    fontWeight: "bold",
-    fontSize: 50,
-    color: "#fb5b5a",
-    marginBottom: 40
-  },
   inputView: {
-    width: "80%",
-    backgroundColor: "#465881",
+    width: '80%',
+    backgroundColor: '#465881',
     borderRadius: 25,
     height: 50,
     marginBottom: 20,
-    justifyContent: "center",
+    justifyContent: 'center',
     padding: 20
   },
   inputText: {
     height: 50,
-    color: "white"
-  },
-  forgot: {
-    color: "white",
-    fontSize: 11
+    color: 'white'
   },
   loginBtn: {
-    width: "80%",
-    backgroundColor: "#fb5b5a",
+    width: '80%',
+    backgroundColor: '#fb5b5a',
     borderRadius: 25,
     height: 50,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
     marginTop: 40,
     marginBottom: 10
   },
   loginText: {
-    color: "white"
+    color: 'white'
   }
 });
