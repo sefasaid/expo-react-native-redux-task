@@ -25,8 +25,8 @@ export default function Home() {
                     renderItem={
                         ({ item }) =>
                             <View style={ styles.walletView } >
-                                <Text>{ item.name }</Text>
-                                <Text>{ item.trust }</Text>
+                                <Text style={ styles.walletName }>{ item.name }</Text>
+                                <Text style={ styles.trust }>{ item.symbol } { item.trust }</Text>
                             </View>
                     }
                 />
@@ -54,5 +54,12 @@ const styles = StyleSheet.create({
     listView: {
         padding: '10%',
         width: '100%',
+    },
+    walletName: {
+        fontSize: 22,
+        fontWeight: 'bold'
+    },
+    trust: {
+        fontSize: 18
     }
 });
