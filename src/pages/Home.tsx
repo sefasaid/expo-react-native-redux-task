@@ -12,7 +12,9 @@ export default function Home() {
         (state: AppState) => state.auth
     )
     useEffect(() => {
-        dispatch(getWallets(user.id))
+        if (user.token.trim() !== '') {
+            dispatch(getWallets(user.id))
+        }
     }, [user.token]);
     return (
         <SafeAreaView style={ { flex: 1 } }>
