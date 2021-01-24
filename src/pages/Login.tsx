@@ -6,7 +6,7 @@ import { Entypo } from '@expo/vector-icons';
 export default function Login() {
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const [show_password, setShowPassword] = useState<boolean>(false);
+  const [show_password, setShowPassword] = useState<boolean>(true);
   const dispatch = useDispatch();
 
   const login = () => {
